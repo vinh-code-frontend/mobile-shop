@@ -1,4 +1,4 @@
-# Mobile store (2025)
+# Mobile shop (2025)
 
 My graduation project was to build a mobile phone shop, it was enough for me to graduate but after a few years of working, I found it was not good enough and decided to rebuild it.
 
