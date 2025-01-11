@@ -16,3 +16,4 @@ appsettings.Development.json
 # Logs
 *.log
 
+sql-queries/
