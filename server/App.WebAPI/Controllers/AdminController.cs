@@ -1,83 +1,37 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using App.Application.Interfaces;
+using App.Core.DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace App.WebAPI.Controllers
 {
-    public class AdminController : Controller
+    [ApiController]
+    [Route("[controller]")]
+    public class AdminController : ControllerBase
     {
-        // GET: AdminController
-        public ActionResult Index()
+        private readonly ILogger<AdminController> logger;
+        private readonly IAdminService adminService;
+        public AdminController(ILogger<AdminController> logger, IAdminService adminService)
         {
-            return View();
+            this.logger = logger;
+            this.adminService = adminService;
         }
-
-        // GET: AdminController/Details/5
-        public ActionResult Details(int id)
+        [HttpPost("Register")]
+        public async Task<ActionResult> Register(AdminRegisterRequestDTO? adminRegisterDTO)
         {
-            return View();
-        }
-
-        // GET: AdminController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: AdminController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
+            bool isValid = await adminService.ValidateRegisterRequest(adminRegisterDTO);
+            if (!isValid)
             {
-                return RedirectToAction(nameof(Index));
+                return BadRequest(new { error = "Bad Request" });
             }
-            catch
-            {
-                return View();
-            }
+            return Ok("OKe");
         }
 
-        // GET: AdminController/Edit/5
-        public ActionResult Edit(int id)
+        [HttpPost("Login")]
+        public async Task<ActionResult> Login()
         {
-            return View();
+            return Ok("Details");
+
         }
 
-        // POST: AdminController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: AdminController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: AdminController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }
