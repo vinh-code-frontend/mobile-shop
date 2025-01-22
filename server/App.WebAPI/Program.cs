@@ -1,7 +1,9 @@
 using App.Application.Interfaces;
 using App.Application.IRepositories;
+using App.Application.IServices;
 using App.Application.Repositories;
 using App.Application.Services;
+using App.Application.Utilities;
 using App.Infrastructure.DatabaseContext;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +25,9 @@ builder.Services.AddScoped<IAdminService, AdminService>();
 
 //Repositories
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+
+// JWT
+builder.Services.AddTransient<ITokenService, TokenService>();
 
 builder.Services.AddAuthentication(options =>
 {

@@ -37,7 +37,7 @@ namespace App.Core.Entities
         public Guid? CreatedById { get; set; }
         [StringLength(300)]
         public string? RefreshToken { get; set; }
-        public DateTime? RefreshTokenExpired { get; set; }
+        public int? RefreshTokenExpired { get; set; }
 
     }
 }

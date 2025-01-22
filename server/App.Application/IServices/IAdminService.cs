@@ -1,11 +1,11 @@
 ﻿using App.Core.DTO;
 using App.Core.Entities;
 
-namespace App.Application.Interfaces
+namespace App.Application.IServices
 {
     public interface IAdminService
     {
         Task<bool> ValidateRegisterRequest(AdminRegisterRequestDTO? request);
-        Task<AdminAuthResponseDTO> Register(Admin admin);
+        Task<Admin> Register(AdminRegisterRequestDTO admin);
     }
 }
