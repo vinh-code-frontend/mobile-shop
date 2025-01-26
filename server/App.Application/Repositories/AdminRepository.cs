@@ -14,14 +14,14 @@ namespace App.Application.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<Admin> CreateAdmin(Admin admin)
+        public async Task<Admin> CreateAdminAsync(Admin admin)
         {
             _dbContext.Admins.Add(admin);
             await _dbContext.SaveChangesAsync();
             return admin;
         }
 
-        public async Task<Admin?> GetAdminByEmail(string email)
+        public async Task<Admin?> GetAdminByEmailAsync(string email)
         {
             if (_dbContext.Admins == null)
             {
@@ -30,7 +30,16 @@ namespace App.Application.Repositories
             return await _dbContext.Admins.FirstOrDefaultAsync(temp => temp.Email == email);
         }
 
-        public async Task<Admin?> UpdateAdmin(Admin admin)
+        public async Task<Admin?> GetAdminByUsernameAsync(string username)
+        {
+            if (_dbContext.Admins == null)
+            {
+                return null;
+            }
+            return await _dbContext.Admins.FirstOrDefaultAsync(temp => temp.Username == username);
+        }
+
+        public async Task<Admin?> UpdateAdminAsync(Admin admin)
         {
             if (_dbContext.Admins == null)
             {
@@ -41,7 +50,7 @@ namespace App.Application.Repositories
             {
                 return null;
             }
-            matchAdmin.Password = admin.Password;
+            matchAdmin.PasswordHashed = admin.PasswordHashed;
             matchAdmin.Email = admin.Email;
             matchAdmin.DisplayName = admin.DisplayName;
             matchAdmin.Role = admin.Role;

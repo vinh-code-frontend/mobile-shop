@@ -12,7 +12,7 @@ namespace App.Core.Entities
         public string Username { get; set; } = String.Empty;
         [Required]
         [StringLength(255)]
-        public string Password { get; set; } = String.Empty;
+        public string PasswordHashed { get; set; } = String.Empty;
         [Required]
         [StringLength(255)]
         [EmailAddress]
@@ -35,9 +35,9 @@ namespace App.Core.Entities
         public DateTime? UpdatedAt { get; set; }
 
         public Guid? CreatedById { get; set; }
-        [StringLength(300)]
+        [StringLength(1000)]
         public string? RefreshToken { get; set; }
-        public int? RefreshTokenExpired { get; set; }
+        public DateTime? RefreshTokenExpired { get; set; }
 
     }
 }

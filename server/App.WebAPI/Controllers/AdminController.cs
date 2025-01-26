@@ -1,8 +1,9 @@
 ﻿using App.Application.Interfaces;
 using App.Application.IServices;
 using App.Core.DTO;
-using App.Core.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace App.WebAPI.Controllers
 {
@@ -22,6 +23,7 @@ namespace App.WebAPI.Controllers
             this.configuration = configuration;
         }
         [HttpPost("Register")]
+        [AllowAnonymous]
         public async Task<ActionResult> Register(AdminRegisterRequestDTO? adminRegisterDTO)
         {
             if (adminRegisterDTO == null)
@@ -33,28 +35,25 @@ namespace App.WebAPI.Controllers
             {
                 return BadRequest(new { error = "Bad Request" });
             }
-            Admin newAdmin = await adminService.Register(adminRegisterDTO);
+            AdminAuthResponseDTO registerResponse = await adminService.Register(adminRegisterDTO);
 
-            int accessTokenExpiredIn = configuration.GetValue<int>("Jwt:AccessTokenExpiredIn");
-            int refreshTokenExpiredIn = configuration.GetValue<int>("Jwt:RefreshTokenExpiredIn");
-
-            string accessToken = tokenService.GenerateAdminToken(newAdmin, accessTokenExpiredIn);
-            string refreshToken = tokenService.GenerateAdminToken(newAdmin, refreshTokenExpiredIn);
-
-            AdminAuthResponseDTO adminAuthResponseDTO = new AdminAuthResponseDTO()
-            {
-                AccessToken = accessToken,
-                RefreshToken = refreshToken,
-                AccessTokenExpiredIn = accessTokenExpiredIn,
-                RefreshTokenExpiredIn = refreshTokenExpiredIn
-            };
-            return Ok(adminAuthResponseDTO);
+            return Ok(registerResponse);
         }
 
         [HttpPost("Login")]
-        public async Task<ActionResult> Login()
+        [AllowAnonymous]
+        public async Task<ActionResult> Login(AdminLoginRequestDTO? adminLoginDTO)
         {
-            return Ok("Details");
+            if (adminLoginDTO == null || adminLoginDTO.Username.IsNullOrEmpty() || adminLoginDTO.Password.IsNullOrEmpty())
+            {
+                return BadRequest(new { error = "Missing required fields" });
+            }
+            AdminAuthResponseDTO? adminAuth = await adminService.Login(adminLoginDTO);
+            if (adminAuth == null)
+            {
+                return NotFound(new { error = "Username or password is not correct" });
+            }
+            return Ok(adminAuth);
 
         }
 

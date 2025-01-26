@@ -50,10 +50,11 @@ namespace App.Infrastructure.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("PasswordHashed")
                         .IsRequired()
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("PasswordHashed");
 
                     b.Property<string>("PhoneNumber")
                         .HasMaxLength(20)
@@ -102,10 +103,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("b020db79-81f9-43a3-84cc-23681aa7246d"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(3516),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(8988),
                             DisplayName = "Janna Longford",
                             Email = "jlongford0@marketwatch.com",
-                            Password = "$2a$04$eOgiynEu3KdZl0PSnNHAoO869MQ7fea1jSKBTfrgZejxcqXV.rTD6",
+                            PasswordHashed = "$2a$04$eOgiynEu3KdZl0PSnNHAoO869MQ7fea1jSKBTfrgZejxcqXV.rTD6",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "jlongford0"
@@ -113,10 +114,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("508f45f9-a981-41ef-a1e2-4ac7f9a779c6"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(3789),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9155),
                             DisplayName = "Keene Bale",
                             Email = "kbale1@youtube.com",
-                            Password = "$2a$04$S4p42MoLbiCT2DRGjLjeXOnGTUj.LMm/zUideI3DKkHC7IX618Qse",
+                            PasswordHashed = "$2a$04$S4p42MoLbiCT2DRGjLjeXOnGTUj.LMm/zUideI3DKkHC7IX618Qse",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "kbale1"
@@ -124,10 +125,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("c19a64b0-d62d-4d50-994a-cbe3ad8ed97b"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(3853),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9192),
                             DisplayName = "Helyn Carl",
                             Email = "hcarl2@ustream.tv",
-                            Password = "$2a$04$/0j3DJV1umEjQt6AjUXs6.jyOTPz6h7MxzD9PgLphpxN8f37LvdIK",
+                            PasswordHashed = "$2a$04$/0j3DJV1umEjQt6AjUXs6.jyOTPz6h7MxzD9PgLphpxN8f37LvdIK",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "hcarl2"
@@ -135,10 +136,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("7eb9106f-e403-4b4b-97ea-8242591be0ad"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(3886),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9223),
                             DisplayName = "Starr Lay",
                             Email = "slay3@timesonline.co.uk",
-                            Password = "$2a$04$Qbf0k.RHLbx1BjOjpAokee9jvob/PzUkAUAuTZhTJqtWZ0Ev5kGfa",
+                            PasswordHashed = "$2a$04$Qbf0k.RHLbx1BjOjpAokee9jvob/PzUkAUAuTZhTJqtWZ0Ev5kGfa",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "slay3"
@@ -146,10 +147,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("d2135181-9dba-4fe6-b3e3-bde127de8c02"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(3920),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9253),
                             DisplayName = "Madlin Wohlers",
                             Email = "mwohlers4@phpbb.com",
-                            Password = "$2a$04$ABckV.1E6enmFXa5V84PHOaPGGkSns9c8lmjTXsFOqKTLxmT0nlYK",
+                            PasswordHashed = "$2a$04$ABckV.1E6enmFXa5V84PHOaPGGkSns9c8lmjTXsFOqKTLxmT0nlYK",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "mwohlers4"
@@ -157,10 +158,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("cd5d29de-2225-4a8e-8b52-506bf8f1e995"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(3963),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9284),
                             DisplayName = "Merwin Basili",
                             Email = "mbasili5@google.fr",
-                            Password = "$2a$04$rbNiJO3bL8k622TwqlQUMubh7kxVRqMkUCZW6r9v/NsvpdYw8Pjx6",
+                            PasswordHashed = "$2a$04$rbNiJO3bL8k622TwqlQUMubh7kxVRqMkUCZW6r9v/NsvpdYw8Pjx6",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "mbasili5"
@@ -168,10 +169,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("f99b60f8-311d-4aa6-b08f-fe14da1e5a38"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(4000),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9312),
                             DisplayName = "Jelene Bevar",
                             Email = "jbevar6@cdc.gov",
-                            Password = "$2a$04$lEcVrgXYRzi4Y.KReF9F/.PEv01dSjzfPLAqaWFCmbwb6ms.VXDFS",
+                            PasswordHashed = "$2a$04$lEcVrgXYRzi4Y.KReF9F/.PEv01dSjzfPLAqaWFCmbwb6ms.VXDFS",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "jbevar6"
@@ -179,10 +180,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("c0529d4f-2b25-4d7d-b2ec-d55a3c0210c2"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(4035),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9344),
                             DisplayName = "Lee Burnard",
                             Email = "lburnard7@live.com",
-                            Password = "$2a$04$SfAGtJ7OCherL5MlaKBj5ut6Sq0.fj0Nmgu/WSZcJmqfClhygYRsC",
+                            PasswordHashed = "$2a$04$SfAGtJ7OCherL5MlaKBj5ut6Sq0.fj0Nmgu/WSZcJmqfClhygYRsC",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "lburnard7"
@@ -190,10 +191,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("eecf5fa7-a683-489f-aefb-42933946ce1d"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(4067),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9374),
                             DisplayName = "Arlen Beddows",
                             Email = "abeddows8@howstuffworks.com",
-                            Password = "$2a$04$8HJKu7g4fcl9YhLw3jF/jur9rjk5N6ic0dkPc4XetIZqS2AfV9I8e",
+                            PasswordHashed = "$2a$04$8HJKu7g4fcl9YhLw3jF/jur9rjk5N6ic0dkPc4XetIZqS2AfV9I8e",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "abeddows8"
@@ -201,10 +202,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("c21c2e8d-a275-4ae7-9ebd-336e16ec57ab"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(4106),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9405),
                             DisplayName = "Dimitri Guisler",
                             Email = "dguisler9@smugmug.com",
-                            Password = "$2a$04$IlBv6mYPJP4LNvhcN7.gbO84HvcstwzvWwZokhgnRyzLSvr2SFxYC",
+                            PasswordHashed = "$2a$04$IlBv6mYPJP4LNvhcN7.gbO84HvcstwzvWwZokhgnRyzLSvr2SFxYC",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "dguisler9"
@@ -212,10 +213,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("b2b44bb2-3261-40b4-8319-4054f59c9c8c"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(4175),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9435),
                             DisplayName = "Estell Wardhough",
                             Email = "ewardhougha@mediafire.com",
-                            Password = "$2a$04$4wG80/nH79T/EvzbjSODCOopRbmKXbDga7jmnKjVptHRSib3kK.Nq",
+                            PasswordHashed = "$2a$04$4wG80/nH79T/EvzbjSODCOopRbmKXbDga7jmnKjVptHRSib3kK.Nq",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "ewardhougha"
@@ -223,10 +224,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("2ac19fc6-7d0e-486f-89b8-0ebf71ea7d46"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(4237),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9465),
                             DisplayName = "Philbert Grimwad",
                             Email = "pgrimwadb@tiny.cc",
-                            Password = "$2a$04$B5zadGbsBhE8dPpk102Xqusxxrx25hbO8aHWufTTvBte3fgpcB6QO",
+                            PasswordHashed = "$2a$04$B5zadGbsBhE8dPpk102Xqusxxrx25hbO8aHWufTTvBte3fgpcB6QO",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "pgrimwadb"
@@ -234,10 +235,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("16e0e145-8f78-4ea9-bb97-73935fbf671c"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(4291),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9497),
                             DisplayName = "Tobi Kolakovic",
                             Email = "tkolakovicc@trellian.com",
-                            Password = "$2a$04$pmx4w4iwJPNoA/58J0Rm1.vX3OjKhmTZrpA2vcI3qHjHdGQhFHDwC",
+                            PasswordHashed = "$2a$04$pmx4w4iwJPNoA/58J0Rm1.vX3OjKhmTZrpA2vcI3qHjHdGQhFHDwC",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "tkolakovicc"
@@ -245,10 +246,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("b4b13be2-002a-4966-a3b2-c77c0d82705a"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(4348),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9530),
                             DisplayName = "Valentino LeEstut",
                             Email = "vleestutd@a8.net",
-                            Password = "$2a$04$qFYN1FxLDQ7KpYTFqxCUJOe1OAnU4OHWeqejT1IPrLkfjzVe6AWQW",
+                            PasswordHashed = "$2a$04$qFYN1FxLDQ7KpYTFqxCUJOe1OAnU4OHWeqejT1IPrLkfjzVe6AWQW",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "vleestutd"
@@ -256,10 +257,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("2905d4de-a3cf-4c3a-b6f1-a0a7ef3526ed"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(4397),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9550),
                             DisplayName = "Karylin Haglinton",
                             Email = "khaglintone@utexas.edu",
-                            Password = "$2a$04$CELBLoaS5s9Hjj0rl9l72.a2dKtpZ3jq1saD0utdFR6USeas0IjFq",
+                            PasswordHashed = "$2a$04$CELBLoaS5s9Hjj0rl9l72.a2dKtpZ3jq1saD0utdFR6USeas0IjFq",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "khaglintone"
@@ -267,10 +268,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("6dc7173c-e46d-4d93-b83d-dc292c674689"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(4482),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9569),
                             DisplayName = "Trish Hotchkin",
                             Email = "thotchkinf@soundcloud.com",
-                            Password = "$2a$04$bFeG7J8HL0AG8GuyB.IYDOy1EpJFetGDknB3lGI4MXnuKvRmWTqCC",
+                            PasswordHashed = "$2a$04$bFeG7J8HL0AG8GuyB.IYDOy1EpJFetGDknB3lGI4MXnuKvRmWTqCC",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "thotchkinf"
@@ -278,10 +279,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("7e0367b3-3ba5-4f52-8ed7-94b15d09a972"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(4642),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9643),
                             DisplayName = "Ronalda Antoniewicz",
                             Email = "rantoniewiczg@paginegialle.it",
-                            Password = "$2a$04$Gl3ubGe0iVHYVYQEoBdYQ.L5SJ3hfFBBKQVjUvZHfsURxDxqsl8MO",
+                            PasswordHashed = "$2a$04$Gl3ubGe0iVHYVYQEoBdYQ.L5SJ3hfFBBKQVjUvZHfsURxDxqsl8MO",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "rantoniewiczg"
@@ -289,10 +290,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("262b2ee5-2530-4599-b4b2-13ad83556a18"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(4689),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9667),
                             DisplayName = "Alexei Jenken",
                             Email = "ajenkenh@ezinearticles.com",
-                            Password = "$2a$04$S4ZkoHJZusA1nHUGw4rpPeS9Be8NgMIhLx63vhvenf8pUcVm9QIw.",
+                            PasswordHashed = "$2a$04$S4ZkoHJZusA1nHUGw4rpPeS9Be8NgMIhLx63vhvenf8pUcVm9QIw.",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "ajenkenh"
@@ -300,10 +301,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("ed05ae89-9f4d-4393-bd8f-3fbe98cd4ce0"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(4722),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9688),
                             DisplayName = "Liuka Obeney",
                             Email = "lobeneyi@prnewswire.com",
-                            Password = "$2a$04$BEgZh/9fSoWmZd6pnw.pD.pSJXnsi9V2GnjPkWLufI4ouHKlGWWBy",
+                            PasswordHashed = "$2a$04$BEgZh/9fSoWmZd6pnw.pD.pSJXnsi9V2GnjPkWLufI4ouHKlGWWBy",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "lobeneyi"
@@ -311,10 +312,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("2174b032-e122-4f76-958f-c2699a7257ae"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(4755),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9707),
                             DisplayName = "Parrnell Scoon",
                             Email = "pscoonj@exblog.jp",
-                            Password = "$2a$04$RHF9KF4Gc0OlAxaAUYO1XeWYQ6uhrQiCPbzZ2Od3PUn5kwAfgpvmi",
+                            PasswordHashed = "$2a$04$RHF9KF4Gc0OlAxaAUYO1XeWYQ6uhrQiCPbzZ2Od3PUn5kwAfgpvmi",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "pscoonj"
@@ -322,10 +323,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("7a758875-9af4-4977-a6d3-c78d464bfcaa"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(4791),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9726),
                             DisplayName = "Witty Dive",
                             Email = "wdivek@forbes.com",
-                            Password = "$2a$04$lC.XbFRoroN9auhBzb0QTe6/3WDQ9r3z3722fVTYDmVFdmDn5biAC",
+                            PasswordHashed = "$2a$04$lC.XbFRoroN9auhBzb0QTe6/3WDQ9r3z3722fVTYDmVFdmDn5biAC",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "wdivek"
@@ -333,10 +334,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("a98e4e28-0d8a-4bc1-8deb-929ad1731239"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(4880),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9745),
                             DisplayName = "Alphard McNeish",
                             Email = "amcneishl@discuz.net",
-                            Password = "$2a$04$yvS7XfiIfYmgAL5Yx2yw2.NHEkTkspqKe4Kd4F/rjKUATq9VLff2q",
+                            PasswordHashed = "$2a$04$yvS7XfiIfYmgAL5Yx2yw2.NHEkTkspqKe4Kd4F/rjKUATq9VLff2q",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "amcneishl"
@@ -344,10 +345,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("1c48a372-eb5f-42f7-9399-44855fe8d026"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(4934),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9766),
                             DisplayName = "Man Skirlin",
                             Email = "mskirlinm@businesswire.com",
-                            Password = "$2a$04$74BZIib7/aubEl4OvpbyNeJyH5/TLYipMOSEmCDf1mQsb/22kdxvO",
+                            PasswordHashed = "$2a$04$74BZIib7/aubEl4OvpbyNeJyH5/TLYipMOSEmCDf1mQsb/22kdxvO",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "mskirlinm"
@@ -355,10 +356,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("80b5604b-f2b2-4cd0-99d1-9e1d3a833254"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(4996),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9785),
                             DisplayName = "Joni Plampin",
                             Email = "jplampinn@nps.gov",
-                            Password = "$2a$04$/tlKvjG0dDyX6W8avz1xIevRHIcTq4dvcHafPb6On70BC5uEaTQTm",
+                            PasswordHashed = "$2a$04$/tlKvjG0dDyX6W8avz1xIevRHIcTq4dvcHafPb6On70BC5uEaTQTm",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "jplampinn"
@@ -366,10 +367,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("92eacbf0-5ecf-4d8a-affd-61403c30c62a"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(5046),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9804),
                             DisplayName = "Louisette Causnett",
                             Email = "lcausnetto@usatoday.com",
-                            Password = "$2a$04$FOF9eaMqQ2ortw1.bcRlUu.cvxUGX9hS67kPcTsdlpzVg.7sX3Yuu",
+                            PasswordHashed = "$2a$04$FOF9eaMqQ2ortw1.bcRlUu.cvxUGX9hS67kPcTsdlpzVg.7sX3Yuu",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "lcausnetto"
@@ -377,10 +378,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("08d1f92a-d16e-449a-a524-2988991098d6"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(5119),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9823),
                             DisplayName = "Osbert Gore",
                             Email = "ogorep@wordpress.com",
-                            Password = "$2a$04$Ud0SQpKMTt0i9NdMLmTbDOZ2L5aVf1jBequCAFJe9e7QZFm0gRFqu",
+                            PasswordHashed = "$2a$04$Ud0SQpKMTt0i9NdMLmTbDOZ2L5aVf1jBequCAFJe9e7QZFm0gRFqu",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "ogorep"
@@ -388,10 +389,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("65ea5436-1ef6-4fc0-9773-df34d2d04643"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(5182),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9841),
                             DisplayName = "Cinnamon Packwood",
                             Email = "cpackwoodq@drupal.org",
-                            Password = "$2a$04$SWjLq7uiS13zx9PPHFYxEuPAt1F5yRR/gIqskYUSZkgYf68EyKzDm",
+                            PasswordHashed = "$2a$04$SWjLq7uiS13zx9PPHFYxEuPAt1F5yRR/gIqskYUSZkgYf68EyKzDm",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "cpackwoodq"
@@ -399,10 +400,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("c99ebece-d2c5-4868-8e09-e6210257fa91"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(5220),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9860),
                             DisplayName = "Maren Mullany",
                             Email = "mmullanyr@pagesperso-orange.fr",
-                            Password = "$2a$04$YopqILMBP8nTsFfT1.01/O5yZK7wdVdPa1D.vbgRQo38ayaFqlGnS",
+                            PasswordHashed = "$2a$04$YopqILMBP8nTsFfT1.01/O5yZK7wdVdPa1D.vbgRQo38ayaFqlGnS",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "mmullanyr"
@@ -410,10 +411,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("ce583f0e-8737-406a-9cf4-226eff7b8e55"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(5255),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9878),
                             DisplayName = "Torey Mowbray",
                             Email = "tmowbrays@imdb.com",
-                            Password = "$2a$04$3UHAHwshpdPNNeBW3vTwQO4Z2dw/P/.t5Kq3iLwid6A73Yvzf43SK",
+                            PasswordHashed = "$2a$04$3UHAHwshpdPNNeBW3vTwQO4Z2dw/P/.t5Kq3iLwid6A73Yvzf43SK",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "tmowbrays"
@@ -421,10 +422,10 @@ namespace App.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("ee300ab3-85ff-4f92-9839-8fbd92f3147b"),
-                            CreatedAt = new DateTime(2025, 1, 23, 0, 28, 3, 631, DateTimeKind.Local).AddTicks(5288),
+                            CreatedAt = new DateTime(2025, 1, 26, 16, 1, 4, 830, DateTimeKind.Local).AddTicks(9898),
                             DisplayName = "Bank Dabels",
                             Email = "bdabelst@google.es",
-                            Password = "$2a$04$wmfyx6v4/seiBuCWNusmJOEsk9l5vALPMYCjReG2CjFLRKFLahLjq",
+                            PasswordHashed = "$2a$04$wmfyx6v4/seiBuCWNusmJOEsk9l5vALPMYCjReG2CjFLRKFLahLjq",
                             Role = "SalesAssociate",
                             Status = "Active",
                             Username = "bdabelst"

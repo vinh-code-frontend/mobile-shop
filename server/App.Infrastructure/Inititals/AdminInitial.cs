@@ -18,6 +18,9 @@ namespace App.Infrastructure.Initial
         public void AddConstraint()
         {
             _modelBuilder.Entity<Admin>()
+    .Property(e => e.PasswordHashed)
+    .HasColumnName("PasswordHashed");
+            _modelBuilder.Entity<Admin>()
                  .HasIndex(m => m.Username)
                  .IsUnique();
             _modelBuilder.Entity<Admin>()
