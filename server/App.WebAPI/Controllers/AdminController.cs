@@ -7,9 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace App.WebAPI.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class AdminController : ControllerBase
+    public class AdminController : ApiControllerBase
     {
         private readonly ILogger<AdminController> logger;
         private readonly IAdminService adminService;
