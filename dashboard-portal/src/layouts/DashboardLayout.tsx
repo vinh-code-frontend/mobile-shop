@@ -15,7 +15,6 @@ const DashboardLayout = ({
   children: ReactElement | null;
 }) => {
   const isDashboardPage = checkDashboardPage(path);
-  console.log("tét");
   return isDashboardPage ? (
     <Fragment>
       <div className="flex">
