@@ -1,7 +1,7 @@
 import { useLocation, useRoutes } from "react-router-dom";
 import authRoutes from "./AuthRoutes";
 import { ReactElement, Suspense, useEffect } from "react";
-import { useNProgress } from "@/hooks/useNProgress";
+import { useNProgress } from "@/utils/nProgress";
 import { commonRoutes } from "./CommonRoutes";
 import dashboardRoutes from "./DashboardRoutes";
 import DashboardLayout from "@/layouts/DashboardLayout";
@@ -15,6 +15,7 @@ const AppRoutes = () => {
 
   useEffect(() => {
     start();
+
     done();
     return () => {
       done();

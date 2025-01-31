@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 
 const CategoryPage = () => {
   return <div>CategoryPage</div>;

@@ -1,4 +1,4 @@
-import { Fragment, ReactElement, memo } from "react";
+import { Fragment, ReactElement, memo, useEffect } from "react";
 import Sidebar from "@/components/menu/Sidebar";
 import Topbar from "@/components/menu/Topbar";
 import dashboardRoutes from "@/routes/DashboardRoutes";
@@ -15,6 +15,7 @@ const DashboardLayout = ({
   children: ReactElement | null;
 }) => {
   const isDashboardPage = checkDashboardPage(path);
+
   return isDashboardPage ? (
     <Fragment>
       <div className="flex">

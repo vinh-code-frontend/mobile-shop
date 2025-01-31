@@ -1,0 +1,8 @@
+.required-label {
+  position: relative;
+}
+
+.required-label::after {
+  content: "*";
+  color: var(--color-red-600);
+}
