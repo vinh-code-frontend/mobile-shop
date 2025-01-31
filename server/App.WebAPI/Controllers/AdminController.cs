@@ -12,13 +12,11 @@ namespace App.WebAPI.Controllers
         private readonly ILogger<AdminController> logger;
         private readonly IAdminService adminService;
         private readonly ITokenService tokenService;
-        private readonly IConfiguration configuration;
-        public AdminController(ILogger<AdminController> logger, IAdminService adminService, ITokenService tokenService, IConfiguration configuration)
+        public AdminController(ILogger<AdminController> logger, IAdminService adminService, ITokenService tokenService)
         {
             this.logger = logger;
             this.adminService = adminService;
             this.tokenService = tokenService;
-            this.configuration = configuration;
         }
         [HttpPost("Register")]
         [AllowAnonymous]
@@ -52,8 +50,17 @@ namespace App.WebAPI.Controllers
                 return NotFound(new { error = "Username or password is not correct" });
             }
             return Ok(adminAuth);
-
         }
-
+        [HttpGet("Me")]
+        public async Task<ActionResult> Me()
+        {
+            var authorizationHeader = Request.Headers.Authorization.ToString();
+            if (string.IsNullOrEmpty(authorizationHeader))
+            {
+                return BadRequest(new { error = "Missing token" });
+            }
+            var token = authorizationHeader.Replace("Bearer ", "").Trim();
+            return Ok(token);
+        }
     }
 }
