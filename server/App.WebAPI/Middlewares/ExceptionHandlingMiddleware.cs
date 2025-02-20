@@ -1,40 +1,45 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using System.Net;
+using System.Text.Json;
 
 namespace App.WebAPI.Middleware
 {
     public class ExceptionHandlingMiddleware
     {
         private readonly RequestDelegate _next;
+        private readonly ILogger<ExceptionHandlingMiddleware> _logger;
 
-        public ExceptionHandlingMiddleware(RequestDelegate next)
+        public ExceptionHandlingMiddleware(RequestDelegate next, ILogger<ExceptionHandlingMiddleware> logger)
         {
             _next = next;
+            _logger = logger;
         }
 
-        public async Task InvokeAsync(HttpContext context)
+        public async Task Invoke(HttpContext context)
         {
             try
             {
                 await _next(context);
             }
-            catch (SecurityTokenExpiredException)
-            {
-                if (!context.Response.HasStarted)
-                {
-                    context.Response.StatusCode = 401;
-                    context.Response.ContentType = "application/json";
-                    await context.Response.WriteAsync("{\"error\":\"Token has expired\"}");
-                }
-            }
             catch (Exception ex)
             {
-                if (!context.Response.HasStarted)
-                {
-                    context.Response.StatusCode = 500;
-                    context.Response.ContentType = "application/json";
-                    await context.Response.WriteAsync($"{{\"error\":\"{ex.Message}\"}}");
-                }
+                _logger.LogError(ex, "Unhandled exception occurred.");
+                await HandleExceptionAsync(context, ex);
             }
+        }
+
+        private static Task HandleExceptionAsync(HttpContext context, Exception exception)
+        {
+            context.Response.ContentType = "application/json";
+            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+
+            var response = new
+            {
+                StatusCode = context.Response.StatusCode,
+                Message = "An unexpected error occurred. Please try again later.",
+                Detailed = exception.Message
+            };
+
+            return context.Response.WriteAsync(JsonSerializer.Serialize(response));
         }
     }
 }

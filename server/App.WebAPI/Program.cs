@@ -6,6 +6,7 @@ using App.Application.Services;
 using App.Application.Utilities;
 using App.Infrastructure.DatabaseContext;
 using App.WebAPI.Middleware;
+using App.WebAPI.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -98,6 +99,8 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+app.UseMiddleware<TokenValidationMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
